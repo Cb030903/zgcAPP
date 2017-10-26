@@ -1,0 +1,135 @@
+{
+	"index.html": {
+		"resources": [
+			"js/app.js",
+			"js/jquery.min.js",
+			"js/Frameworks/iuapmobile.frameworks.ui.js",
+			"css/font-icons.css",
+			"css/iuapmobile.um.css",
+			"js/summer.js",
+			"css/fonts/themify.woff",
+			"css/index.css",
+			"img/org3.png",
+			"js/mui.min.js",
+			"js/dome.js",
+			"img/org2.png",
+			"img/org1.png",
+			"html/fxxq.html",
+			"html/qzxqt.html",
+			"html/wdqz.html",
+			"js/index.js"
+		],
+		"refer": [
+			"html/fxxq.html",
+			"html/qzxqt.html",
+			"html/wdqz.html"
+		]
+	},
+	"html/fxxq.html": {
+		"resources": [
+			"css/index.css",
+			"index.html",
+			"img/dierbu@2x.png",
+			"img/diyibu@2x.png",
+			"js/highcharts.js",
+			"css/font-icons.css",
+			"css/iuapmobile.um.css",
+			"js/index.js",
+			"img/disanbu@2x.png",
+			"html/shouss.html",
+			"html/qz.html"
+		],
+		"refer": [
+			"index.html",
+			"html/shouss.html",
+			"html/qz.html"
+		]
+	},
+	"html/qzxqt.html": {
+		"resources": [
+			"css/index.css",
+			"js/dome.js",
+			"js/highcharts.js",
+			"css/font-icons.css",
+			"css/iuapmobile.um.css",
+			"js/zzt.js",
+			"html/wdqz.html",
+			"html/sqjr.html",
+			"index.html"
+		],
+		"refer": [
+			"html/wdqz.html",
+			"html/sqjr.html",
+			"index.html"
+		]
+	},
+	"html/sqjr.html": {
+		"resources": [
+			"img/zhiye@2x.png",
+			"img/Fill 1@2x.png",
+			"html/qzxqt.html",
+			"js/highcharts.js"
+		],
+		"refer": [
+			"html/qzxqt.html"
+		]
+	},
+	"html/wdqz.html": {
+		"resources": [
+			"html/grcy.html",
+			"html/qzxqt.html",
+			"css/iuapmobile.um.css",
+			"html/yqjl.html",
+			"index.html",
+			"css/index.css",
+			"css/font-icons.css",
+			"js/summer.js"
+		],
+		"refer": [
+			"html/grcy.html",
+			"html/qzxqt.html",
+			"html/yqjl.html",
+			"index.html"
+		]
+	},
+	"html/grcy.html": {
+		"resources": [
+			"css/iuapmobile.um.css",
+			"html/wdqz.html",
+			"js/highcharts.js"
+		],
+		"refer": [
+			"html/wdqz.html"
+		]
+	},
+	"html/yqjl.html": {
+		"resources": [
+			"html/wdqz.html",
+			"js/highcharts.js",
+			"css/iuapmobile.um.css",
+			"css/index.css",
+			"css/font-icons.css"
+		],
+		"refer": [
+			"html/wdqz.html"
+		]
+	},
+	"html/shouss.html": {
+		"resources": [
+			"css/iuapmobile.um.css",
+			"html/fxxq.html"
+		],
+		"refer": [
+			"html/fxxq.html"
+		]
+	},
+	"html/qz.html": {
+		"resources": [
+			"html/fxxq.html",
+			"css/iuapmobile.um.css"
+		],
+		"refer": [
+			"html/fxxq.html"
+		]
+	}
+}

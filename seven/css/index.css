@@ -126,7 +126,8 @@ body {
 .in-bot input {
 	outline: none;
 	border: none;
-	height: 0.666rem;
+	height: 0.7rem;
+	
 	width: 100%;
 	text-align: center;
 	font-size: 0.666rem;
@@ -155,16 +156,16 @@ body {
 	top: 100%;
 	left: 50%;
 	bottom: 0;
-	margin-left: 0.006rem;
-	width: 0.013rem;
+	margin-left: -0.5px;
+	width:1px;
 	height: 1.728rem;
 	background: #D8D8D8;
 	transition: .5s;
 }
 
 .row .action:after {
-	width: 0.026rem;
-	margin-left: -0.013rem;
+	width: 2px;
+	margin-left: -0.75px;
 	background: #4F85F3;
 }
 

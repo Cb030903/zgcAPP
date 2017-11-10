@@ -1,136 +1,60 @@
-//setTimeout(function() {
+(function() {
+	var end, start, g, c = 1000,
+		X, liw, maxl = 50000,
+		miv;
+	var awin = $(window).width() / 2;
 
-	var n = 0;
+	$('.main').css({
+		'-webkit-transform': 'translateX(' + awin + 'px)'
+	}).attr('value', awin);
 
-	var u, end, start, g, g2;
-
-	var w0 = 50;
-
-	var w1 = 10.4;
-
-	var w2 = 52;
-
-	var ageVal = $(".row").find(".number").attr("initial-value"); //30-18
-
-//	$('.ruler .main').css({
-//		'-webkit-transform': 'translateX(-' + Math.ceil(parseInt(ageVal * w0)) + 'px)'
-//	}).attr('value', Math.ceil(ageVal * w0));
-
-	for(var i = 0; i < $('.ruler').length; i++) {
-		var liW = $('.ruler').eq(i).find("li").width();
-		var size = $('.ruler').eq(i).find('li').size();
+	for(var i = 1; i <= 50; i++) {
+		$('<li><span class="num">' + c * i + '</span></li>').appendTo('.main ul');
 	}
+	var awi = $('.main').find('li').width();
+
+	$('.number').on('input porpertychange', function() {
+		end = $(this).val();
+		miv = $(this).val();
+		miv = miv > maxl ? maxl : miv;
+		end = end > maxl ? maxl : end;
+		$(this).val(end)
+		end = end / (c / awi)
+		end == ''&&end ==0 ? $('.in-bot-num').removeClass('action') && $('.in-bot-box').hide() && $('.in-bot-b').css('background', ' #c7d6f6') : $('.in-bot-num').addClass('action') && $('.in-bot-box').show().find('span').text(miv) && $('.in-bot-b').css('background', '#4F85F3');
+		$(".main").css({
+			'-webkit-transform': 'translateX(' + (awin - end) + 'px)'
+		}).attr('value', awin - end)
+	});
+	var bwin = awi * 50;
+	$('.main').width(bwin + 15)
 
 	$('body').on('touchend,touchmove,touchstart', function(e) {
 		e.preventDefault();
 	})
-
-//	$('.selectize li').on('touchstart', function() {
-//		$(this).addClass("hover").siblings("li").removeClass("hover");
-//	})
-//
-//	$('.selectize li').on('touchsend', function() {
-//		$(this).removeClass("hover");
-//	})
-
 	$('.ruler ul').on("touchstart", function(e) {
-		var initial = $(this).attr('data-initial');
+		var initial = $(this).parent(".main").attr('value');
 		e.stopPropagation();
-		v = parseInt($(this).parent(".main").attr('value'));
-
-		if($(this).closest('.ruler').hasClass("ruler-weight")) {
-			start = 0;
-			end = '-1458';
-			g = 52;
-		} else if($(this).closest('.ruler').hasClass("ruler-age")) {
-			start = 0;
-			end = '-1600';
-			g = 50;
-
-		} else {
-			start = 0;
-			end = '-623';
-			g = 10.4;
-		}
-
-		if(initial == 'true') {
-			startX = e.originalEvent.changedTouches[0].pageX + v;
-			$(this).attr('data-initial', 'false');
-		} else {
-			startX = e.originalEvent.changedTouches[0].pageX - v;
-		}
+		startX = e.originalEvent.changedTouches[0].pageX - initial;
 	});
 
 	$('.ruler ul').on("touchmove", function(e) {
 
-		var number = parseInt($(this).closest(".row").find('.number').attr('value'));
-
 		moveX = e.originalEvent.changedTouches[0].pageX;
-
 		X = moveX - startX;
+		liw = -bwin + awin;
 
-		if(X > 0) {
-			var vv = $(this).parent(".main").attr('value');
+		$(this).parent(".main").css({
+			'-webkit-transform': 'translateX(' + X + 'px)'
+		})
+		$('.in-bot-b').css('background', '#4F85F3')
+		$('.in-bot-num').addClass('action');
 
-			if(vv >= start) {
+		X = X < liw ? liw : X;
 
-				start = X > start ? start : X;
+		val = Math.abs(X - awin) * (c / awi).toFixed(0);
 
-				$(this).parent(".main").css({
-					'-webkit-transform': 'translateX(' + start + 'px)'
-				}).attr('value', start);
-			} else {
-				$(this).parent(".main").css({
-					'-webkit-transform': 'translateX(' + X + 'px)'
-				}).attr('value', X);
-			}
-
-			if($(this).closest('.ruler').hasClass("ruler-weight")) {
-				var val = (number - 20 + Math.abs(vv / g) / 0.4).toFixed(1); //.replace('.0','');
-				$(this).closest(".row").find('.number').text(val);
-			} else {
-				$(this).closest(".row").find('.number').text(Math.ceil(number - (vv / g) - 10));
-
-				if($(this).closest('.ruler').hasClass("ruler-age")) {
-					var ageVal = $(this).closest(".row").find('.number').text();
-					$(this).closest(".row").find('.number').text(parseInt(ageVal - 2))
-				}
-			}
-
-		} else {
-
-			var vv = $(this).parent(".main").attr('value');
-
-			if($(this).parent(".main").attr('value') <= end) {
-				end = X < end ? end : X;
-				$(this).parent(".main").css({
-					'-webkit-transform': 'translateX(' + end + 'px)'
-				}).attr('value', end);
-			} else {
-				$(this).parent(".main").css({
-					'-webkit-transform': 'translateX(' + X + 'px)'
-				}).attr('value', X);
-			}
-
-			if($(this).closest('.ruler').hasClass("ruler-weight")) {
-
-				var val = (number - 20 + Math.abs(vv / g) / 0.4).toFixed(1);
-
-				if(val == '100.1') {
-					val = 100;
-				}
-
-				$(this).closest(".row").find('.number').text(val);
-
-			} else {
-				$(this).closest(".row").find('.number').text(Math.ceil(number + Math.abs(vv / g) - 10));
-
-				if($(this).closest('.ruler').hasClass("ruler-age")) {
-					var ageVal = $(this).closest(".row").find('.number').text();
-					$(this).closest(".row").find('.number').text(parseInt(ageVal - 2))
-				}
-			}
-		}
+		$(this).closest(".row").find('.number').val(Math.round(val / 100) * 100);
+		$('.in-bot-box').show().find('span').text(Math.round(val / 100) * 100)
 		e.preventDefault();
 	});
 
@@ -138,36 +62,33 @@
 
 		e.stopPropagation();
 
-		moveEndX = e.originalEvent.changedTouches[0].screenX;
+		moveEndX = e.originalEvent.changedTouches[0].pageX;
 
 		X = moveEndX - startX;
-
-		var arr = new Array();
-
-		if($(this).closest('.ruler').hasClass("ruler-age")) {
-
-			var value = Math.abs($(this).parent(".main").attr("value"));
-
-			var value2 = Math.round(Math.abs(value) / 100) * 100;
-
-			if(value > value2) {
-				value2 += 50;
-			}
+		if(X >= awin) {
 
 			$(this).parent(".main").css({
-				'-webkit-transform': 'translateX(-' + value2 + 'px)'
-			}).attr('value', '-' + value2);
+				'-webkit-transform': 'translateX(' + awin + 'px)'
+			}).attr('value', awin)
+			$('.in-bot-num').removeClass('action');
+			$('.in-bot-box').hide();
+			$('.in-bot-b').css('background', ' #c7d6f6');
+			$(this).closest(".row").find('.number').val($('.number').attr('placeholder'));
+
+		} else if(X <= liw) {
+
+			$(this).parent(".main").css({
+				'-webkit-transform': 'translateX(' + liw + 'px)'
+			}).attr('value', liw)
+			$(this).closest(".row").find('.number').val(maxl);
+
+		} else {
+			$(this).parent(".main").css({
+				'-webkit-transform': 'translateX(' + X + 'px)'
+			}).attr('value', X)
+			$(this).closest(".row").find('.number').val(Math.round(val / 100) * 100);
+
 		}
 
-		$(this).closest(".page").find(".number").each(function() {
-			var txt = $(this).text();
-			arr.push(txt);
-		});
-
-		var arrayJoin = arr.join('##');
-
-		$(this).closest(".page").find('input[type="hidden"]').val(arrayJoin);
-
 	});
-
-//}, 100);
+})()

@@ -1,18 +1,16 @@
-﻿
+﻿$(function(){
+			//	页面切换
+   $('.in-a').click(function(){
+   	var pag=$(this).attr('datt');
 
-summerready = function(){
-    // here is your code...	
-    var top = $summer.offset($summer.byId('header')).h;
-	var bottom = $summer.offset($summer.byId('footer')).h;
-    summer.openFrame({
-        id: 'main',
-        url: 'html/main.html',
-        bounces: true,
-        position: {
-            top: top,
-			bottom: bottom,
-            left: 0,
-            right: 0
-        }
-    });
-}
+summer.openWin({
+					id:pag,
+					url:"html/"+pag+".html"
+				});
+   	
+   })
+   $('.um-back').click(function(){				 
+					summer.closeWin();
+				});
+//	页面切换	
+})

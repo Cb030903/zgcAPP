@@ -86,6 +86,10 @@
 	padding: 0.666666rem 0.4rem;
 	background: #FFFFFF;
 }
+.padd30{
+	padding:0.4rem;
+	background: #FFFFFF;
+}
 .askdiv1{
 	margin-bottom: 0.4rem;
 }
@@ -236,5 +240,48 @@
 	background: #f7f7f7;
 }
 .getcondeul1 li:last-child input{
+	margin-right: 0;
+}
+.padd3030{
+	padding:0.4rem 0;
+	background: #ffffff;
+}
+.hxcjsdiv1{
+	width: 8.853333rem;
+	height: 3.653333rem;
+	background:url(../img/bg.png) no-repeat;
+	background-size: 100%;
+	margin:0 auto;
+	text-align: center;
+}
+.height20{
+	height: 0.266666rem;
+	background:#F7F7F7;
+}
+.hxcjsdiv1-1{
+	color: #FD7373;
+	font-size: 0.64rem;
+	padding-top: 0.666666rem;
+}
+.hxcjsdiv1-2{
+	font-size: 0.266666rem;
+	color: #595f71;
+	margin-top: 0.213333rem;
+}
+.hxcjsdiv1-3{
+	padding: 0 0.933333rem;
+	margin-top: 0.466666rem;
+}
+.hxcjsdiv1-3 li{
+	font-size: 0.266666rem;
+	color: #6f7b86;
+	float: left;
+	padding:0.08rem 0.106666rem;
+	border:1px solid #6f7b86;
+	border-radius: 0.066666rem;
+	text-align: center;
+	margin-right:0.213333rem;
+}
+.hxcjsdiv1-3 li:last-child{
 	margin-right: 0;
 }

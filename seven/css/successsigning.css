@@ -309,3 +309,31 @@
 .hxcjsdiv1-3 li:last-child{
 	margin-right: 0;
 }
+.in-depo{
+	font-size: 0.373rem;
+color: #4B5366;
+
+}
+.in-depo-div{
+	padding:  .4rem;
+	line-height: 1.7;
+}
+.in-depo-div span{
+	display: inherit;
+	color: #4F85F3;
+}
+.in-dep{
+	text-align: center;
+	font-size: 0.48rem;
+color: #4B5366;
+
+line-height: 0.453rem;
+}
+.in-dep img{
+	width: 6.145rem;
+	height: 4.066rem;
+}
+.in-dep b{
+	display: block;
+	padding: 0.533rem 0 0.64rem;
+}

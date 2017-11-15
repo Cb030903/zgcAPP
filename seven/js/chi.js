@@ -1,4 +1,7 @@
-(function() {
+//(function() {
+	
+			   setTimeout(function(){
+	
 	var end, start, g, c = 1000,
 		X, liw, maxl = 50000,
 		miv;
@@ -11,11 +14,15 @@
 	for(var i = 1; i <= 50; i++) {
 		$('<li><span class="num">' + c * i + '</span></li>').appendTo('.main ul');
 	}
+
 	var awi = $('.main').find('li').width();
 
 	$('.number').on('input porpertychange', function() {
 		end = $(this).val();
 		miv = $(this).val();
+
+		end=end.replace(/^[0]*/g,'')
+
 		miv = miv > maxl ? maxl : miv;
 		end = end > maxl ? maxl : end;
 		$(this).val(end)
@@ -34,13 +41,17 @@
 	$('.ruler ul').on("touchstart", function(e) {
 		var initial = $(this).parent(".main").attr('value');
 		e.stopPropagation();
-		startX = e.originalEvent.changedTouches[0].pageX - initial;
+		startX = e.originalEvent.changedTouches[0].pageX-initial;
 	});
 
 	$('.ruler ul').on("touchmove", function(e) {
 
 		moveX = e.originalEvent.changedTouches[0].pageX;
 		X = moveX - startX;
+      if(X>awin||X<=-bwin){
+			return false
+		}
+		
 		liw = -bwin + awin;
 
 		$(this).parent(".main").css({
@@ -81,14 +92,26 @@
 				'-webkit-transform': 'translateX(' + liw + 'px)'
 			}).attr('value', liw)
 			$(this).closest(".row").find('.number').val(maxl);
+		$('.in-bot-box').show().find('span').text(maxl)
+			
 
 		} else {
 			$(this).parent(".main").css({
 				'-webkit-transform': 'translateX(' + X + 'px)'
 			}).attr('value', X)
 			$(this).closest(".row").find('.number').val(Math.round(val / 100) * 100);
+//			   setTimeout(function(){
+//   	var a=$('.number').val()
+//   	a = a / (c / awi)
+//   		$(".main").css({
+//			'-webkit-transform': 'translateX(' + (awin - a) + 'px)'
+//		})
+//	},50);
 
 		}
-
+  
+     	
 	});
-})()
+	},100);
+	
+//})()

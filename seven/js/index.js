@@ -82,7 +82,7 @@
 				"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
 				{
 					'isShowTabbar': "NO",
-					//							'tab':'1', //页面各种跳转的状态       1签约     2解约   3累计收益接口   4
+					//							'tab':'1', //页面各种跳转的状态       1签约     2解约   3累计收益接口   4 5账户详情
 					'transtype': "netWork",
 					'must': {
 						'cif_no': 'Y',

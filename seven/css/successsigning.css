@@ -147,8 +147,11 @@
 .margtop20{
 	margin-top:1.439993rem;
 }
+.heightfirst{
+  height: 1.173333rem;
+  width: 100%;
+}
 .incomeul1{
-	/*margin-top: 0.266666rem;*/
 	padding:0 0.4rem;
 	background: #FFFFFF;
 }

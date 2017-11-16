@@ -3,7 +3,7 @@ window.onload = function() {
 	summer.callService(
 					"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
 					{
-						'isShowTabbar': "NO",
+						'isShowTabbar': "YES",
 						'tab': 5,
 						'requestdata':{'txcode': '1900012','acc_kind':'CNY','start_page':'1','page_conut':'10'},
 						"callback": accountdetails,
@@ -21,15 +21,14 @@ function accountdetails(data) {
 					var strall = '';
 					
 					for(var i = 0; i < bodydata.length; i++) {
-						if(bodydata[i].user_name!=undefined&&bodydata[i].deposit_date&&!undefined&&bodydata[i].deposit_money&&bodydata[i].deposit_days){
-							strall +='<li>+'
+						
+							strall+='<li data-val="' + bodydata[i].deposit_money + '&' + bodydata[i].deposit_days + '&' + bodydata[i].deposit_date + '&' + bodydata[i].user_name + '">+'
 								'<h3>存款金额</h3>+'
 								'<div>+'
-									'<h4 class="countnum">'+bodydata[i].deposit_money+'</h4>+'
-									'<p>已存<span class="daynum">'+bodydata[i].deposit_days+'</span>天</p>+'
+								'<h4 class="countnum">'+bodydata[i].deposit_money+'</h4>+'
+								'<p>已存<span class="daynum">'+bodydata[i].deposit_days+'</span>天</p>+'
 								'</div>+'
-							'</li>';
-						}
+							    '</li>';
 						/*alert(bodydata[i].user_name);
 						alert(bodydata[i].deposit_date);
 						alert(bodydata[i].deposit_money);
@@ -41,3 +40,10 @@ function accountdetails(data) {
 				}
 
 		}
+
+//点击查看账户详情
+$('.countul').on('click', 'li', function() {
+	var detail = $(this).attr('data-val');
+	summer.setStorage('detail', detail);
+	window.location.href = "accountdetails.html";
+})

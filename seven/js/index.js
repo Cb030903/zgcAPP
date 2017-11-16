@@ -22,16 +22,45 @@
 
 			var stm = $('#index2').length == 1 || $('#index3').length == 1 || $('#index4').length == 1 ? '' : 'html/';
 			if(data.signingAndLogin == 1 && $('#index1').length != 1) {
-				window.location.href = '../index.html';
+//				window.location.href = '../index.html';		
+				summer.openWin({
+    id:data.signingAndLogin,
+    url:"../index.html",
+    "addBackListener":"true"
+});
 			} else if(data.signingAndLogin == 2 && $('#index2').length != 1) {
-				window.location.href = stm + 'wdl.html';
+//				window.location.href = stm + 'wdl.html';
+								summer.openWin({
+    id:data.signingAndLogin,
+    url:stm + 'wdl.html',
+    "addBackListener":"true"
+});
+				
+				
 			} else if(data.signingAndLogin == 3 && $('#index3').length != 1) {
-				window.location.href = stm + 'yqy.html';
+//				window.location.href = stm + 'yqy.html';
+								summer.openWin({
+    id:data.signingAndLogin,
+    url:stm + 'yqy.html',
+    "addBackListener":"true"
+});
 			} else if(data.signingAndLogin == 4 && $('#index4').length != 1) {
-				window.location.href = stm + 'htprocol.html';
+//				window.location.href = stm + 'htprocol.html';
+								summer.openWin({
+    id:data.signingAndLogin,
+    url:stm + 'htprocol.html',
+    "addBackListener":"true"
+});
 
 			}
 		}
+		
+		//在当前index页面中去打开main页面，则需要在main页面中定义keyBack方法
+
+//在main页面中定义全局的keyBack函数
+function keyBack(){
+    summer.closeWin();
+}
 
 	},
 
@@ -113,6 +142,19 @@
 			$('.in-bottom').hide();
 		})
 		$('.in-bottom li').last().click(function() {
+            		summer.callService(
+					"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
+					{
 
+						'tab': 1
+																																
+					}, //参数
+					false //异步（true 同步）
+				)
+		})
+		
+		$('.in-header-bod h2 i').click(function(){
+			$(this).is('.active')?$(this).removeClass('active')&&$('.in-header-bod span').text('* * * * *')&&$('.in-header-body-span').text('* * * * *')&&$('.in-header-body-spa').text('* * * * *'):$(this).addClass('active')&&$('.in-header-bod span').text(345345345)&&$('.in-header-body-span').text(345345345)&&$('.in-header-body-spa').text(345345345);
+			
 		})
 	})

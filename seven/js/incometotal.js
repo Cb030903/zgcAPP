@@ -5,7 +5,7 @@ window.onload = function() {
 					{
 						'isShowTabbar': "NO",
 						'tab': 3,
-						'requestdata':{'txcode': '1900011','acc_currency':'CNY','income_type':'1','page_index':'1','page_count':'10'},
+						'requestdata':{'txcode': '1900011','acc_currency':'CNY','income_type':'1','page_index':'1','page_count':'10','branch_id':'90001'},
 						"callback": incometotal,
 					}, //参数
 					false //异步（true 同步）

@@ -5,7 +5,7 @@ window.onload = function() {
 					{
 						'isShowTabbar': "YES",
 						'tab': 5,
-						'requestdata':{'txcode': '1900012','acc_kind':'CNY','start_page':'1','page_conut':'10'},
+						'requestdata':{'txcode': '1900012','acc_kind':'CNY','start_page':'1','page_conut':'10','branch_id':'90001'},
 						"callback": accountdetails,
 					}, //参数
 					false //异步（true 同步）

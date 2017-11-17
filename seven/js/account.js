@@ -1,4 +1,5 @@
 summerready=function(){
+	setTimeout(function(){
 	summer.callService(
 					"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
 					{
@@ -6,6 +7,8 @@ summerready=function(){
 					}, //参数
 					false //异步（true 同步）
 				)
+	},1000)
+	
 		var detail=summer.getStorage('detail');
 		if(detail!=undefined&&detail.indexOf('&')>=0){
 		$('.deposit').text(detail.split('&')[0]);

@@ -1,5 +1,5 @@
 ﻿window.onload = function() {
-
+		var num, num1, num2,mtex;
 		if(document.getElementById('index') != undefined) {
 
 			setTimeout(function() {
@@ -14,55 +14,91 @@
 					}, //参数
 					false //异步（true 同步）
 				)
-			}, 200)
+			}, 500)
 		}
 
-		//1 未登录  2 未签约 3已签约  4已签约账户为0
+		//0 未登录  1 未签约 2已签约  3已签约账户为0
 		function iss(data) {
+			var retflag = data.result_data;
+			var str = JSON.parse(retflag)
+			if(str!=null){
+				
+			num = str.BODY.balance;
+			num1 = str.BODY.past_proceed;
+			num2 = str.BODY.total_proceed;
+		summer.setStorage("num",num);
+		summer.setStorage("num1",num1);
+		summer.setStorage("num2",num2);
+		summer.setStorage("hxcjsdiv1-1",str.BODY.proceed_rate);
 
-			var stm = $('#index2').length == 1 || $('#index3').length == 1 || $('#index4').length == 1 ? '' : 'html/';
-			if(data.signingAndLogin == 1 && $('#index1').length != 1) {
-//				window.location.href = '../index.html';		
-				summer.openWin({
-    id:data.signingAndLogin,
-    url:"../index.html",
-    "addBackListener":"true"
-});
-			} else if(data.signingAndLogin == 2 && $('#index2').length != 1) {
-//				window.location.href = stm + 'wdl.html';
-								summer.openWin({
-    id:data.signingAndLogin,
-    url:stm + 'wdl.html',
-    "addBackListener":"true"
-});
-				
-				
-			} else if(data.signingAndLogin == 3 && $('#index3').length != 1) {
-//				window.location.href = stm + 'yqy.html';
-								summer.openWin({
-    id:data.signingAndLogin,
-    url:stm + 'yqy.html',
-    "addBackListener":"true"
-});
-			} else if(data.signingAndLogin == 4 && $('#index4').length != 1) {
-//				window.location.href = stm + 'htprocol.html';
-								summer.openWin({
-    id:data.signingAndLogin,
-    url:stm + 'htprocol.html',
-    "addBackListener":"true"
-});
+			$('.in-cen-left p').text(str.BODY.proceed_rate)
+
+			$('.in-header-box p').text(str.BODY.home_word)
+			if(data.signingAndLogin == 0) {
+				$('.indexmi').eq(data.signingAndLogin).show().siblings().hide()
+
+			} else if(data.signingAndLogin == 1) {
+
+				$('.indexmi').eq(data.signingAndLogin).show().siblings().hide()
+
+			} else if(data.signingAndLogin == 2) {
+
+				$('.indexmi').eq(data.signingAndLogin).show().siblings().hide()
+
+				summer.callService(
+					"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
+					{
+
+						'tab': 5,
+						'requestdata': {
+							'txcode': '1900012',
+							'acc_kind': 'CNY',
+							'start_page': '1',
+							'page_conut': '10'
+						},
+						"callback": accountdetails
+					}, //参数
+					false //异步（true 同步）
+				)
+
+			} else if(data.signingAndLogin == 3) {
+				//				window.location.href = stm + 'htprocol.html';
+				$('.indexmi').eq(data.signingAndLogin).show().siblings().hide()
 
 			}
+			}else{
+				return 
+			}
+			
 		}
-		
-		//在当前index页面中去打开main页面，则需要在main页面中定义keyBack方法
 
-//在main页面中定义全局的keyBack函数
-function keyBack(){
-    summer.closeWin();
-}
+		function accountdetails(data) {
+			var retflag = data.result_data;
+			var str = JSON.parse(retflag);
+			var bodydata = str.BODY.UserInfoOut_list;
+			if(bodydata != undefined && bodydata.length > 0) {
+				var strall = '';
 
+				for(var i = 0; i < bodydata.length; i++) {
+					if(bodydata[i].user_name != undefined && bodydata[i].deposit_date && !undefined && bodydata[i].deposit_money && bodydata[i].deposit_days) {
+						strall += '<li>+'
+						'<h3>存款金额</h3>+'
+						'<div>+'
+						'<h4 class="countnum">' + bodydata[i].deposit_money + '</h4>+'
+						'<p>已存<span class="daynum">' + bodydata[i].deposit_days + '</span>天</p>+'
+						'</div>+'
+						'</li>';
+					}
+				}
+
+				$(strall).appendTo('.countul');
+			}
+
+		}
+			$('hxcjsdiv1-1').text(summer.getStorage("hxcjsdiv1-1"))
 	},
+
+	//账户详情
 
 	$(function() {
 		//	页面切换
@@ -80,6 +116,7 @@ function keyBack(){
 		//				});
 		//	页面切换	
 		$('.in-header-box').click(function() {
+
 			summer.callService(
 				"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
 				{
@@ -142,19 +179,24 @@ function keyBack(){
 			$('.in-bottom').hide();
 		})
 		$('.in-bottom li').last().click(function() {
-            		summer.callService(
-					"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
-					{
+			summer.callService(
+				"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
+				{
 
-						'tab': 1
-																																
-					}, //参数
-					false //异步（true 同步）
-				)
+					'tab': 2
+
+				}, //参数
+				false //异步（true 同步）
+			)
 		})
+       var tex=$('.in-header-bod span').text();
+       parseFloat(tex).toString() !== "NaN" ?$('.in-header-bod h2 i').addClass('active'):$('.in-header-bod h2 i').removeClass('active')
+		$('.in-header-bod h2 i').click(function() {
+			var _this = $(this).is('.active');
+				var a = $('.in-header-bod span');
+			var b = $('.in-header-body-span');
+			var c = $('.in-header-body-spa');
+			_this ? $(this).removeClass('active')&&a.text('* * * * *')&&b.text('* * * ')&&c.text('* * * ') : $(this).addClass('active')&&a.text(summer.getStorage("num"))&&b.text(summer.getStorage("num1"))&&c.text(summer.getStorage("num2"));
 		
-		$('.in-header-bod h2 i').click(function(){
-			$(this).is('.active')?$(this).removeClass('active')&&$('.in-header-bod span').text('* * * * *')&&$('.in-header-body-span').text('* * * * *')&&$('.in-header-body-spa').text('* * * * *'):$(this).addClass('active')&&$('.in-header-bod span').text(345345345)&&$('.in-header-body-span').text(345345345)&&$('.in-header-body-spa').text(345345345);
-			
 		})
 	})

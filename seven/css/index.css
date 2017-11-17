@@ -548,3 +548,14 @@ color: #4B5366;
 font-size: 0.32rem;
 color: #989898;
 }
+.indexmi{
+	display: none;
+}
+.indexmi:first-child{
+	display: block;
+}
+.in-bot-d{
+width: 100%;
+background: #fff;	
+margin: 0.2rem  0;
+}

@@ -1,5 +1,6 @@
 ﻿window.onload = function() {
-		var num, num1, num2,mtex;
+		var num, num1, num2,num3;
+
 		if(document.getElementById('index') != undefined) {
 
 			setTimeout(function() {
@@ -16,7 +17,7 @@
 				)
 			}, 500)
 		}
-
+				$('.indexmi').eq(summer.getStorage("num3")).show().siblings().hide()
 		//0 未登录  1 未签约 2已签约  3已签约账户为0
 		function iss(data) {
 			var retflag = data.result_data;
@@ -30,6 +31,7 @@
 		summer.setStorage("num1",num1);
 		summer.setStorage("num2",num2);
 		summer.setStorage("hxcjsdiv1-1",str.BODY.proceed_rate);
+		summer.setStorage("num3",data.signingAndLogin);
 
 			$('.in-cen-left p').text(str.BODY.proceed_rate)
 
@@ -84,10 +86,7 @@ function accountdetails(data) {
 								'<p>已存<span class="daynum">'+bodydata[i].deposit_days+'</span>天</p>+'
 								'</div>+'
 							    '</li>';
-						/*alert(bodydata[i].user_name);
-						alert(bodydata[i].deposit_date);
-						alert(bodydata[i].deposit_money);
-						alert(bodydata[i].deposit_days);*/
+
 						
 					}
 

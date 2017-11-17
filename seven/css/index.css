@@ -490,14 +490,33 @@ body {
 }
 .headdiv{
 	position: relative;
-    height: 1.173333rem;
-    line-height: 1.173333rem;
+    height: 1.706rem;
+    line-height: 3.5;
     z-index: 5;
     background: -webkit-linear-gradient(left, #75A8FC, #4F75DC);
 	background: linear-gradient(to right, #75A8FC, #4F75DC);
 	text-align: center;
     color: #ffffff;
     font-size:0.453333rem;
+    /*box-sizing:inherit ;*/
+    
+    padding-top: 0.266rem;
+
+    
+}
+.headdiv a:first-child{
+    background: url(../img/backicon.png) no-repeat center right;
+    background-size:0.213333rem 0.386666rem;
+  
+    display: block;
+    width: 0.666666rem !important;
+
+    height: 1.706rem;
+    
+    line-height: 1.706rem;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
 }
 .um-back.mine-back {
     left: 0;

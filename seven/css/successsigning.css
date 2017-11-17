@@ -12,6 +12,8 @@
 	text-align: center;
     color: #ffffff;
     font-size:0.453333rem;
+    box-sizing:inherit ;
+    padding-top: 0.54rem;
 }
 .headdiv a:first-child{
     background: url(../img/backicon.png) no-repeat center right;
@@ -26,7 +28,7 @@
     left: 0;
 }
 .margtop{
-	margin-top:1.173333rem;
+	margin-top:1.7rem;
 }
 .paddtop{
 	padding-top:1.173333rem;

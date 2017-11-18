@@ -578,3 +578,20 @@ width: 100%;
 background: #fff;	
 margin: 0.2rem  0;
 }
+.in-hb-box{
+	text-align: center;
+}
+.in-hb-box p{
+	font-size: 0.373rem;
+color: #B5B5B5;
+padding-bottom: 0.92rem;
+}
+.in-hb-box img{
+	width: 1.466rem;
+	height: 1.237rem;
+	margin: 1.626rem 0 0.266rem;
+}
+.in-hb-whi{
+	background: #fff;
+	padding: 0 .4rem 0.44rem;
+}

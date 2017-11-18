@@ -304,7 +304,8 @@
 .hxcjsdiv1-3 li{
 	font-size: 0.266666rem;
 	color: #6f7b86;
-	float: left;
+	/*float: left;*/
+	display: inline-block;
 	padding:0.08rem 0.106666rem;
 	border:1px solid #6f7b86;
 	border-radius: 0.066666rem;

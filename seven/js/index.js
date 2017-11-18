@@ -17,13 +17,13 @@
 				)
 			}, 500)
 		}
+	
 				$('.indexmi').eq(summer.getStorage("num3")).show().siblings().hide()
 		//0 未登录  1 未签约 2已签约  3已签约账户为0
 		function iss(data) {
 			var retflag = data.result_data;
 			var str = JSON.parse(retflag)
-			if(str!=null){
-				
+			if(str!=null){				
 			num = str.BODY.balance;
 			num1 = str.BODY.past_proceed;
 			num2 = str.BODY.total_proceed;
@@ -33,7 +33,7 @@
 		summer.setStorage("hxcjsdiv1-1",str.BODY.proceed_rate);
 		summer.setStorage("num3",data.signingAndLogin);
 
-			$('.in-cen-left p').text(str.BODY.proceed_rate)
+			$('.in-cen-left p').text(str.BODY.proceed_rate+'%')
 
 			$('.in-header-box p').text(str.BODY.home_word)
 			if(data.signingAndLogin == 0) {
@@ -50,7 +50,7 @@
 				summer.callService(
 					"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
 					{
-						'isShowTabbar': "YES",
+
 						'tab': 5,
 						'requestdata':{'txcode': '1900012','acc_kind':'CNY','start_page':'1','page_conut':'10','branch_id':'90001'},
 						"callback": accountdetails,
@@ -133,7 +133,7 @@ $('.countul').on('click', 'li', function() {
 
 		$('.in-bot-b').click(function() {
 			var a = $('.number').val();
-			if(a != '' && a != 0) {
+			if(a != '' && a != 0 && a >1) {
 				summer.callService(
 					"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
 					{

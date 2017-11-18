@@ -90,7 +90,7 @@
 			$('.in-bot-num').removeClass('action');
 			$('.in-bot-box').hide();
 			$('.in-bot-b').css('background', ' #c7d6f6');
-			$(this).closest(".row").find('.number').val($('.number').attr('placeholder'));
+			$(this).closest(".row").find('.number').val('');
 
 		} else if(X <= liw) {
 

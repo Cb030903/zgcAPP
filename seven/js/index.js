@@ -169,7 +169,17 @@ $('.countul').on('click', 'li', function() {
 			)
 
 		})
-
+		//点击立即转入
+		$('.transferbtn').click(function() {	
+				summer.callService(
+					"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
+					{
+						'tab': 6,
+																																				
+					}, //参数
+					false //异步（true 同步）
+				)
+		})
 		function mt(data) {
 			var retflag = data.result_data;
 			var str = JSON.parse(retflag)

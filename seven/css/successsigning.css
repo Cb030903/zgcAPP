@@ -150,7 +150,7 @@
 	margin-top:1.439993rem;
 }
 .heightfirst{
-  height: 1.173333rem;
+  height: 1.713333rem;
   width: 100%;
 }
 .incomeul1{
@@ -304,7 +304,7 @@
 .hxcjsdiv1-3 li{
 	font-size: 0.266666rem;
 	color: #6f7b86;
-	/*float: left;*/
+	float: left;
 	display: inline-block;
 	padding:0.08rem 0.106666rem;
 	border:1px solid #6f7b86;

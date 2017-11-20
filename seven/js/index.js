@@ -94,7 +94,7 @@ function accountdetails(data) {
 				}
 
 		}
-			$('hxcjsdiv1-1').text(summer.getStorage("hxcjsdiv1-1"))
+			$('.hxcjsdiv1-1 span').text(summer.getStorage("hxcjsdiv1-1"));
 			//点击查看账户详情
 $('.countul').on('click', 'li', function() {
 	var detail = $(this).attr('data-val');

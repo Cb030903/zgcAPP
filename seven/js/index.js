@@ -76,6 +76,7 @@ function accountdetails(data) {
 			var bodydata=str.BODY.UserInfoOut_list;
 			if(bodydata != undefined && bodydata.length > 0) {
 					var strall = '';
+					$('.countul li').remove();
 					for(var i = 0; i < bodydata.length; i++) {
 						
 							strall+='<li data-val="' + bodydata[i].deposit_money + '&' + bodydata[i].deposit_days + '&' + bodydata[i].deposit_date + '&' + bodydata[i].user_name + '">'+

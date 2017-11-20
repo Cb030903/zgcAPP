@@ -133,7 +133,7 @@ $('.countul').on('click', 'li', function() {
 
 		$('.in-bot-b').click(function() {
 			var a = $('.number').val();
-			if(a != '' && a != 0 && a >1) {
+			if(a != '' && a >= 0 ) {
 				summer.callService(
 					"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
 					{

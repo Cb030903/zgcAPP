@@ -1,6 +1,6 @@
 //(function() {
 
-//setTimeout(function() {
+setTimeout(function() {
 
 	var end, start, g, c = 1000,
 		X, liw, maxl = 50000,
@@ -67,7 +67,6 @@
 		$('.in-bot-num').addClass('action');
 
 		X = X < liw ? liw : X;
-
 		val = Math.abs(X - awin) * (c / awi).toFixed(0);
 
 		$(this).closest(".row").find('.number').val(Math.round(val / 100) * 100);
@@ -90,7 +89,7 @@
 			$('.in-bot-num').removeClass('action');
 			$('.in-bot-box').hide();
 			$('.in-bot-b').css('background', ' #c7d6f6');
-			$(this).closest(".row").find('.number').val($('.number').attr('placeholder'));
+			$(this).closest(".row").find('.number').val('');
 
 		} else if(X <= liw) {
 
@@ -109,6 +108,6 @@
 		}
 
 	});
-//}, 100);
+}, 100);
 
 //})()

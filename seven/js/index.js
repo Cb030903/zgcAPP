@@ -76,15 +76,14 @@ function accountdetails(data) {
 			var bodydata=str.BODY.UserInfoOut_list;
 			if(bodydata != undefined && bodydata.length > 0) {
 					var strall = '';
-					
 					for(var i = 0; i < bodydata.length; i++) {
 						
-							strall+='<li data-val="' + bodydata[i].deposit_money + '&' + bodydata[i].deposit_days + '&' + bodydata[i].deposit_date + '&' + bodydata[i].user_name + '">+'
-								'<h3>存款金额</h3>+'
-								'<div>+'
-								'<h4 class="countnum">'+bodydata[i].deposit_money+'</h4>+'
-								'<p>已存<span class="daynum">'+bodydata[i].deposit_days+'</span>天</p>+'
-								'</div>+'
+							strall+='<li data-val="' + bodydata[i].deposit_money + '&' + bodydata[i].deposit_days + '&' + bodydata[i].deposit_date + '&' + bodydata[i].user_name + '">'+
+								'<h3>存款金额</h3>'+
+								'<div>'+
+								'<h4 class="countnum">'+bodydata[i].deposit_money+'</h4>'+
+								'<p>已存<span class="daynum">'+bodydata[i].deposit_days+'</span>天</p>'+
+								'</div>'+
 							    '</li>';
 
 						

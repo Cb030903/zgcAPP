@@ -50,7 +50,7 @@
 				summer.callService(
 					"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
 					{
-
+						'isShowTabbar': "YES",
 						'tab': 5,
 						'requestdata':{'txcode': '1900012','acc_kind':'CNY','start_page':'1','page_conut':'10','branch_id':'90001'},
 						"callback": accountdetails,
@@ -151,7 +151,7 @@ $('.countul').on('click', 'li', function() {
 			summer.callService(
 				"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
 				{
-					'isShowTabbar': "NO",
+
 					//							'tab':'1', //页面各种跳转的状态       1签约     2解约   3累计收益接口   4 5账户详情
 					'transtype': "netWork",
 					'must': {
@@ -186,13 +186,13 @@ $('.countul').on('click', 'li', function() {
 
 		}
 
-		$('.in-hb-tite span').click(function() {
+		$('.in-tgin').click(function() {
 			$('.in-bottom').show();
 		})
 		$('.in-bottom li').first().click(function() {
 			$('.in-bottom').hide();
 		})
-		$('.in-bottom li').last().click(function() {
+		$('.in-bottom li,.in-tgi').last().click(function() {
 			summer.callService(
 				"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
 				{

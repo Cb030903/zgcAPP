@@ -246,7 +246,7 @@ body {
 	color: #4F85F3;
 }
 
-.in-bot-b {
+.in-bot-b,.transferbtn{
 	display: block;
 	width: 82.7%;
 	height: 1.066rem;
@@ -259,7 +259,9 @@ body {
 	margin: 0 auto;
 	transition: .5s;
 }
-
+.transferbtn{
+background: #4f85f3;
+}
 .in-bot-box {
 	position: absolute;
 	bottom: -50%;

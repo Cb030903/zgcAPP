@@ -343,3 +343,17 @@ line-height: 0.453rem;
 	display: block;
 	padding: 0.533rem 0 0.64rem;
 }
+.nullnum{
+	text-align: center;
+	font-size: 0.373333rem;
+    color: #B5B5B5;
+    padding-top: 5.12rem;
+    display: none;
+}
+.nullnum img{
+	width: 1.333333rem;
+	height: 1.373333rem;
+}
+.nullnum p{
+	margin-top: 0.266666rem;
+}

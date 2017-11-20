@@ -24,6 +24,8 @@ function incometotal(data) {
 					}
 
 					$(strall).appendTo('.incomeul1');
+				}else{
+					$(".nullnum").css("display","block");
 				}
 
 		}

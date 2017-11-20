@@ -324,7 +324,7 @@ color: #4B5366;
 	padding:  .4rem;
 	line-height: 1.7;
 }
-.in-depo-div span{
+.in-depo-div a{
 	display: inherit;
 	color: #4F85F3;
 }

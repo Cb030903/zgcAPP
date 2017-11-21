@@ -30,7 +30,7 @@
 			end = end > maxl ? maxl : end;
 			$(this).val(end)
 			end = end / (c / awi) //获取平均值 得到移动值
-			end == '' && end == 0 ? $('.in-bot-num').removeClass('action') && $('.in-bot-box').hide() && $('.in-bot-b').css('background', ' #c7d6f6') : $('.in-bot-num').addClass('action') && $('.in-bot-box').show().find('span').text(miv) && $('.in-bot-b').css('background', '#4F85F3');
+			end == '' && end < 0 ? $('.in-bot-num').removeClass('action') && $('.in-bot-box').hide() && $('.in-bot-b').css('background', ' #c7d6f6') : $('.in-bot-num').addClass('action') && $('.in-bot-box').show().find('span').text(miv) && $('.in-bot-b').css('background', '#4F85F3');
 			$(".main").css({
 				'-webkit-transform': 'translateX(' + (awin - end) + 'px)'
 			}).attr('value', awin - end)
@@ -112,6 +112,6 @@
 			}
 
 		});
-	}, 100);
+	}, 200);
 
 })()

@@ -1,4 +1,4 @@
-summerready=function(){
+window.onload=function(){
 	setTimeout(function(){
 	summer.callService(
 					"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）

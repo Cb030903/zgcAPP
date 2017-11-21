@@ -422,7 +422,7 @@ background: #4f85f3;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 6;
+    z-index: 99999999999;
     display: none;
     animation: in-bo .5s 1;
 }

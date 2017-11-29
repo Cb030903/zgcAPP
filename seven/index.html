@@ -8,31 +8,65 @@
 		<title>未登录</title>
 		<link rel="stylesheet" href="css/iuapmobile.um.css">
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
+
 	</head>
 
 	<body id="index">
+		<div id="bus_loaderbox">
+			<div></div>
+		</div>
+		<script type="text/javascript">
 
+
+			GetMsg()
+
+			function GetMsg() {
+				var timerId = null;
+
+				var msg = document.getElementById("bus_loaderbox");
+				if(window.document.readyState != null && window.document.readyState != 'complete') {
+					msg.style.display = "block";
+				} else {
+					msg.style.display = "none";
+					window.clearTimeout(timerId);
+					//					addAnimFri();
+					return;
+				}
+				timerId = window.setTimeout('GetMsg()', 1000);
+			}
+
+		</script>
 		<div class="um-page">
 			<div class="indexmi">
 
 				<div id="content" class="um-content in">
+			
+					
+				
+
 					<div class="in-header">
 						<header>
-							<div class="in-header-box">
+							<div class="in-header-box in-box">
 								<p></p>
 								<a href="###">查看余额</a>
 							</div>
-
+                            <div class="in-header-wu in-box">
+								<h1>好享存</h1>
+								<p>暂无余额</p>
+							</div>
 						</header>
 					</div>
-					<section class="in-cen">
-						<div class="in-cen-left">
-							<p></p>
-							<span>年化收益率</span>
-						</div>
+					<a href="html/askanswer.html">
 
-						<div class="in-cen-right" datt='askanswer'>
-							<a href="html/askanswer.html">
+						<section class="in-cen">
+
+							<div class="in-cen-left">
+								<p></p>
+								<span>年化收益率</span>
+							</div>
+
+							<div class="in-cen-right" datt='askanswer'>
+
 								<p>会自转的存款，省心又安全</p>
 								<ul>
 									<li><span>五万起存</span></li>
@@ -40,14 +74,16 @@
 									<li><span>七天结息</span></li>
 									<li><span>自动转存</span></li>
 								</ul>
-							</a>
-						</div>
 
-					</section>
+							</div>
+
+						</section>
+					</a>
+
 					<section class="in-bot row">
 						<h1>留存零钱，剩余转入好享存</h1>
 						<div class="in-bot-num">
-							<input type="text" name="" id="" min="0" max="50000" class="number" placeholder="输入零钱金额" value="" />
+							<input type="number" name="" id="" class="number" placeholder="输入零钱金额" value="" />
 
 						</div>
 						<div class="ruler">
@@ -58,15 +94,15 @@
 							<div class="in-bot-box"><span></span>元不参与签约</div>
 						</div>
 
-						<a class="in-bot-a" href="html/procol.html">同意 <span>《好享存协议》</span></a>
+						<span class="in-bot-a">同意 <a href="html/procol.html">《好享存协议》</a></span>
 
 						<a class="in-bot-b" href="###">立即签约</a>
 
 						<a href="html/depos.html">
 							<div class="in-bot-c">
 								<div>
-									<p>中关村银行已参加存款保险</p>
-									<span>50万保额、放心存款</span>
+									<p>我行已按国家规定参加存款保险</p>
+									<span>50万保额，保护您珍贵的存款</span>
 								</div>
 								<img src="img/bour.png" />
 							</div>
@@ -75,7 +111,7 @@
 
 				</div>
 			</div>
-			<div class="indexmi">
+			<!--<div class="indexmi">
 
 				<div id="content" class="um-content in">
 					<div class="in-header">
@@ -86,14 +122,16 @@
 							</div>
 						</header>
 					</div>
-					<section class="in-cen">
-						<div class="in-cen-left">
-							<p></p>
-							<span>年化收益率</span>
-						</div>
+					<a href="html/askanswer.html">
 
-						<div class="in-cen-right" datt='askanswer'>
-							<a href="html/askanswer.html">
+						<section class="in-cen">
+							<div class="in-cen-left">
+								<p></p>
+								<span>年化收益率</span>
+							</div>
+
+							<div class="in-cen-right" datt='askanswer'>
+
 								<p>会自转的存款，省心又安全</p>
 								<ul>
 									<li><span>五万起存</span></li>
@@ -101,14 +139,16 @@
 									<li><span>七天结息</span></li>
 									<li><span>自动转存</span></li>
 								</ul>
-							</a>
-						</div>
 
-					</section>
+							</div>
+
+						</section>
+					</a>
+
 					<section class="in-bot row">
 						<h1>留存零钱，剩余转入好享存</h1>
 						<div class="in-bot-num">
-							<input type="text" name="" class="number" placeholder="输入零钱金额" value="" />
+							<input type="number" name="" class="number"  placeholder="输入零钱金额" value="" />
 
 						</div>
 						<div class="ruler">
@@ -119,13 +159,14 @@
 							<div class="in-bot-box"><span></span>元不参与签约</div>
 
 						</div>
-						<a class="in-bot-a" href="html/procol.html">同意 <span>《好享存协议》</span></a>
+						<span class="in-bot-a">同意 <a href="html/procol.html">《好享存协议》</a></span>
+
 						<a class="in-bot-b" href="###">立即签约</a>
 						<a href="html/depos.html">
 							<div class="in-bot-c">
 								<div>
-									<p>中关村银行已参加存款保险</p>
-									<span>50万保额、放心存款</span>
+									<p>我行已按国家规定参加存款保险</p>
+									<span>50万保额，保护您珍贵的存款</span>
 								</div>
 								<img src="img/bour.png" />
 							</div>
@@ -134,7 +175,7 @@
 
 				</div>
 
-			</div>
+			</div>-->
 			<div class="indexmi">
 
 				<div id="content" class="um-content in">
@@ -142,7 +183,7 @@
 						<header>
 							<div class="in-header-bod">
 								<h1>好享存</h1>
-								<h2><span  >* * * * *</span><i></i></h2>
+								<h2><span>* * * * *</span></h2>
 							</div>
 							<ul class="in-header-body">
 								<li>
@@ -160,13 +201,13 @@
 							</ul>
 						</header>
 					</div>
-					<section class="in-cen">
-						<div class="in-cen-left">
-							<p></p>
-							<span>年化收益率</span>
-						</div>
-						<div class="in-cen-right" datt='askanswer'>
-							<a href="html/askanswer.html">
+					<a href="html/askanswer.html">
+						<section class="in-cen">
+							<div class="in-cen-left">
+								<p></p>
+								<span>年化收益率</span>
+							</div>
+							<div class="in-cen-right">
 								<p>会自转的存款，省心又安全</p>
 								<ul>
 									<li><span>五万起存</span></li>
@@ -174,43 +215,53 @@
 									<li><span>七天结息</span></li>
 									<li><span>自动转存</span></li>
 								</ul>
-							</a>
-						</div>
 
-					</section>
+							</div>
+
+						</section>
+					</a>
+
 					<section class="in-hb">
 						<a href="html/depos.html">
 							<div class="in-bot-c in-bot-d">
 								<div>
-									<p>中关村银行已参加存款保险</p>
-									<span>50万保额、放心存款</span>
+									<p>我行已按国家规定参加存款保险</p>
+									<span>50万保额，保护您珍贵的存款</span>
 								</div>
 								<img src="img/bour.png">
 							</div>
 						</a>
-						<h3 class="in-hb-tite"><p>我的账户</p><span class="in-tgin">解约</span></h3>
-						<ul class="countul">
-							<!--<li>
-								<h3>存款金额</h3>
-								<div>
-									<h4 class="countnum">60000.00</h4>
-									<p class="daynum">已存<span>6</span>天</p>
+						<h3 class="in-hb-tite"><p>零钱：2000.00元</p><span>解约</span></h3>
+						<div>
+							
 
-								</div>
+						<ul class="countul in-box-a">
 
-							</li>-->
 						</ul>
+						<section class="in-hb in-hb-whi in-box-a">
+
+						<div class="in-hb-box">
+
+							<img src="img/bour1-2.png" />
+							<p>快来存钱 不做月光族</p>
+							<a class="transferbtn" href="###">立即转入</a>
+
+						</div>
+
+					</section>
+						</div>
+					
 					</section>
 
 				</div>
 			</div>
-			<div class="indexmi">
+			<!--<div class="indexmi">
 				<div id="content" class="um-content in">
 					<div class="in-header">
 						<header>
 							<div class="in-header-bod">
 								<h1>好享存</h1>
-								<h2><span  >* * * * *</span><i></i></h2>
+								<h2><span  >* * * * *</span></h2>
 							</div>
 							<ul class="in-header-body">
 								<li>
@@ -228,15 +279,15 @@
 							</ul>
 						</header>
 					</div>
+					<a href="html/askanswer.html">
+						<section class="in-cen">
+							<div class="in-cen-left">
+								<p></p>
+								<span>年化收益率</span>
+							</div>
 
-					<section class="in-cen">
-						<div class="in-cen-left">
-							<p></p>
-							<span>年化收益率</span>
-						</div>
+							<div class="in-cen-right">
 
-						<div class="in-cen-right" datt='askanswer'>
-							<a href="html/askanswer.html">
 								<p>会自转的存款，省心又安全</p>
 								<ul>
 									<li><span>五万起存</span></li>
@@ -244,16 +295,18 @@
 									<li><span>七天结息</span></li>
 									<li><span>自动转存</span></li>
 								</ul>
-							</a>
-						</div>
 
-					</section>
+							</div>
+
+						</section>
+					</a>
+
 					<section>
 						<a href="html/depos.html">
 							<div class="in-bot-c in-bot-d">
 								<div>
-									<p>中关村银行已参加存款保险</p>
-									<span>50万保额、放心存款</span>
+									<p>我行已按国家规定参加存款保险</p>
+									<span>50万保额，保护您珍贵的存款</span>
 								</div>
 								<img src="img/bour.png">
 							</div>
@@ -261,10 +314,10 @@
 					</section>
 					<section class="in-hb">
 
-						<h3 class="in-hb-tite"><p>零钱：2000.00元</p><span class="in-tgi">解约</span></h3>
+						<h3 class="in-hb-tite"><p>零钱：2000.00元</p><span>解约</span></h3>
 					</section>
 
-					<section class="in-hb in-hb-whi">
+					<section class="in-hb in-hb-whi in-box-a">
 
 						<div class="in-hb-box">
 
@@ -277,25 +330,17 @@
 					</section>
 
 				</div>
-			</div>
+			</div>-->
 		</div>
-		<div class="in-bottom">
-			<div class="in-bottom-dele">
-				<p>解约后，您的好享存账户余额将全部转为活期，确定解约吗？</p>
-				<ul>
-					<li class="active">取消</li>
-					<li class="in-tgi">确定</li>
-				</ul>
-			</div>
-		</div>
-
-		<script src="js/dome.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/summer.js"></script>
-		<script src="js/jquery.min.js"></script>
-		<script src="js/Frameworks/iuapmobile.frameworks.ui.js"></script>
-		<script src="js/chi.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 
 	</body>
+	<script src="js/dome.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/summer.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/Frameworks/iuapmobile.frameworks.ui.js"></script>
+	<script src="js/chi.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 
 </html>
+

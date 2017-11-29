@@ -7,14 +7,39 @@
 		<link rel="stylesheet" href="../css/font-icons.css">
 		<link rel="stylesheet" type="text/css" href="../css/stylefirst.css"/>
         <link rel="stylesheet" type="text/css" href="../css/successsigning.css"/>
+
 		<script src="../js/summer.js" ></script>
 		<script src="../js/dome.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/incometotal.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body style="background: #f7f7f7;">
+		<div id="bus_loaderbox">
+			<div></div>
+		</div>
+		<script type="text/javascript">
+
+
+			GetMsg()
+
+			function GetMsg() {
+				var timerId = null;
+
+				var msg = document.getElementById("bus_loaderbox");
+				if(window.document.readyState != null && window.document.readyState != 'complete') {
+					msg.style.display = "block";
+				} else {
+					msg.style.display = "none";
+					window.clearTimeout(timerId);
+					//					addAnimFri();
+					return;
+				}
+				timerId = window.setTimeout('GetMsg()', 1000);
+			}
+
+		</script>
 		<div class="headdiv">
-			<a href="#"></a>
+			<a href="JavaScript:history.back(-1)"></a>
 			累计收益
 		</div>
 		<div class="heightfirst"></div>

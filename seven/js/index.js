@@ -1,193 +1,131 @@
-﻿window.onload = function() {
-		var num, num1, num2, num3;
+﻿$(function() {
 
-		if(document.getElementById('index') != undefined) {
 
-			setTimeout(function() {
 
-				summer.callService(
-					"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
-					{
-						'isShowTabbar': "YES",
-						'tab': 0,
-						//							'issigning': "1"//1是未登录     2登录未签约   3登录已签约    4签约账户为0
-						"callback": iss,
-					}, //参数
-					false //异步（true 同步）
-				)
-			}, 500)
-		}
+if(navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1){
 
-		$('.indexmi').eq(summer.getStorage("num3")).show().siblings().hide()
-		//0 未登录  1 未签约 2已签约  3已签约账户为0
-		function iss(data) {
-			var retflag = data.result_data;
-			var str = JSON.parse(retflag)
-			if(str != null) {
-				num = str.BODY.balance;
-				num1 = str.BODY.past_proceed;
-				num2 = str.BODY.total_proceed;
-				summer.setStorage("num", num);
-				summer.setStorage("num1", num1);
-				summer.setStorage("num2", num2);
-				summer.setStorage("hxcjsdiv1-1", str.BODY.proceed_rate);
-				summer.setStorage("num3", data.signingAndLogin);
+			$('.number').attr('type','tel')
+	
+}
+//	系统判断
+	
+	var tex, tex1, tex2;
+		var strm = JSON.parse(sessionStorage.getItem("str"));
+	if( strm != null && strm.length>0) {
+		$('.in-cen-left p').text(strm.BODY.proceed_rate + '%')
+		$('.in-hb-tite p').text('零钱：' + strm.BODY.sof_bal + '元')
+		$('.in-header-box p').text(strm.BODY.home_word)
+	}
+		var bodydata = JSON.parse(sessionStorage.getItem('bodydata'));
+	if( bodydata != null && bodydata.length>0) {
+		$('.countul').empty();
+		for(var i = 0; i < bodydata.length; i++)
+			$('<li><h3>存款金额</h3><div><h4 class="countnum">' + bodydata[i].deposit_money + '</h4><p>已存<span class="daynum">' + bodydata[i].deposit_days + '</span>天</p></div></li>').appendTo('.countul');
 
-				$('.in-cen-left p').text(str.BODY.proceed_rate + '%')
+	}
+	//点击查看账户详情
+	$('.countul').on('click', 'li', function() {
+		sessionStorage.setItem('inde', $(this).index())
+		summer.callService(
+			"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
+			{
+				'isShowTabbar': "NO"
+			}, //参数
+			false //异步（true 同步）
+		)
 
-				$('.in-header-box p').text(str.BODY.home_word)
-				if(data.signingAndLogin == 0) {
-					$('.indexmi').eq(data.signingAndLogin).show().siblings().hide()
-
-				} else if(data.signingAndLogin == 1) {
-
-					$('.indexmi').eq(data.signingAndLogin).show().siblings().hide()
-
-				} else if(data.signingAndLogin == 2) {
-
-					$('.indexmi').eq(data.signingAndLogin).show().siblings().hide()
-
-					summer.callService(
-						"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
-						{
-							'isShowTabbar': "YES",
-							'tab': 5,
-							'requestdata': {
-								'txcode': '1900012',
-								'acc_kind': 'CNY',
-								'start_page': '1',
-								'page_conut': '10',
-								'branch_id': '90001'
-							},
-							"callback": accountdetails,
-						}, //参数
-						false //异步（true 同步）
-					)
-
-				} else if(data.signingAndLogin == 3) {
-					//				window.location.href = stm + 'htprocol.html';
-					$('.indexmi').eq(data.signingAndLogin).show().siblings().hide()
-
-				}
-			} else {
-				return
-			}
-
-		}
-
-		//账户详情
-		function accountdetails(data) {
-			var retflag = data.result_data;
-			var str = JSON.parse(retflag);
-			var bodydata = str.BODY.UserInfoOut_list;
-			if(bodydata != undefined && bodydata.length > 0) {
-				var strall = '';
-
-				for(var i = 0; i < bodydata.length; i++) {
-
-					strall += '<li data-val="' + bodydata[i].deposit_money + '&' + bodydata[i].deposit_days + '&' + bodydata[i].deposit_date + '&' + bodydata[i].user_name + '">+'
-					'<h3>存款金额</h3>+'
-					'<div>+'
-					'<h4 class="countnum">' + bodydata[i].deposit_money + '</h4>+'
-					'<p>已存<span class="daynum">' + bodydata[i].deposit_days + '</span>天</p>+'
-					'</div>+'
-					'</li>';
-
-				}
-
-				$(strall).appendTo('.countul');
-			}
-
-		}
-		$('.hxcjsdiv1-1 span').text(summer.getStorage("hxcjsdiv1-1"));
-		//点击查看账户详情
-		$('.countul').on('click', 'li', function() {
-			var detail = $(this).attr('data-val');
-			summer.setStorage('detail', detail);
-			window.location.href = "html/accountdetails.html";
-		})
-	},
-
-	$(function() {
-
-		$('.in-header-box').click(function() {
-
-			summer.callService(
-				"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
-				{
-					'isShowTabbar': "YES",
-
-					'tab': 1
-				}, //参数
-				false //异步（true 同步）
-			)
-		})
-
-		$('.in-bot-b').click(function() {
-			var a = $('.number').val();
-
-			if(a != '') {
-				summer.callService(
-					"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
-					{
-						'isShowTabbar': "YES",
-
-						'transtype': a,
-						'tab': 1
-					}, //参数
-					false //异步（true 同步）
-				)
-			}
-
-		})
-		$('.in-bot-c').click(function() {
-			summer.callService(
-				"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
-				{
-
-				}, //参数
-				false //异步（true 同步）
-			)
-		})
-		//点击立即转入
-		$('.transferbtn').click(function() {
-			summer.callService(
-				"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
-				{
-					'isShowTabbar': "YES",
-
-					'tab': 6
-
-				}, //参数
-				false //异步（true 同步）
-			)
-		})
-
-		$('.in-tgin').click(function() {
-			$('.in-bottom').show();
-		})
-		$('.in-bottom li').first().click(function() {
-			$('.in-bottom').hide();
-		})
-		$('.in-tgi').click(function() {
-			summer.callService(
-				"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
-				{
-					'isShowTabbar': "YES",
-					'tab': 2
-
-				}, //参数
-				false //异步（true 同步）
-			)
-		})
-		var tex = $('.in-header-bod span').text();
-		parseFloat(tex).toString() !== "NaN" ? $('.in-header-bod h2 i').addClass('active') : $('.in-header-bod h2 i').removeClass('active')
-		$('.in-header-bod h2 i').click(function() {
-			var _this = $(this).is('.active');
-			var a = $('.in-header-bod span');
-			var b = $('.in-header-body-span');
-			var c = $('.in-header-body-spa');
-			_this ? $(this).removeClass('active') && a.text('* * * * *') && b.text('* * * ') && c.text('* * * ') : $(this).addClass('active') && a.text(summer.getStorage("num")) && b.text(summer.getStorage("num1")) && c.text(summer.getStorage("num2"));
-
-		})
+		window.location.href = "html/accountdetails.html";
 	})
+
+	
+
+	//点击立即转入
+	$('.transferbtn').click(function() {
+		summer.callService(
+			"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
+			{
+				'isShowTabbar': "YES",
+
+				'tab': 6
+
+			}, //参数
+			false //异步（true 同步）
+		)
+	})
+
+	
+
+
+
+	$('.in-bot-c,.in-cen,.in-bot-a a,.in-header-body a').click(function() {
+
+		summer.callService(
+			"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
+			{
+				'isShowTabbar': "NO"
+			}, //参数
+			false //异步（true 同步）
+		)
+	})
+	$('.in-header-box a').click(function() {
+
+		summer.callService(
+			"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
+			{
+				'isShowTabbar': "YES",
+
+				'tab': 1
+			}, //参数
+			false //异步（true 同步）
+		)
+	})
+
+	$('.in-bot-b').click(function() {
+		var a = $(this).closest('.row').find('.number').val();
+if(a===''||a===null){
+	return false
+}
+		summer.callService(
+			"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
+			{
+				'isShowTabbar': "YES",
+
+				'transtype': a,
+				'tab': 1
+			}, //参数
+			false //异步（true 同步）
+		)
+
+	})
+	$('.in-hb-tite span').click(function() {
+		summer.callService(
+			"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
+			{
+				'isShowTabbar': "YES",
+				'tab': 2
+
+			}, //参数
+			false //异步（true 同步）
+		)
+	})
+
+	$('.in-header-bod h2 span').click(function() {
+		$('.in-header-bod h2 span').toggleClass('active');
+		var strt = JSON.parse(sessionStorage.getItem("str"));
+		var a = $('.in-header-bod span');		
+		var b = $('.in-header-body-span');
+		var c = $('.in-header-body-spa');
+		!$('.in-header-bod h2 span').is('.active') ? a.text('* * * * *') && b.text('* * * ') && c.text('* * * ') : a.text(strt.BODY.balance) && b.text(strt.BODY.past_proceed) && c.text(strt.BODY.total_proceed);
+		tex = $(this).closest('header').find('h2 span').text();
+		tex1 = $(this).closest('header').find('.in-header-body-span').text();
+		tex2 = $(this).closest('header').find('.in-header-body-spa').text();
+		sessionStorage.setItem("tex", tex);
+		sessionStorage.setItem("tex1", tex1);
+		sessionStorage.setItem("tex2", tex2);
+
+
+	})
+ 	
+	parseFloat(sessionStorage.getItem("tex")).toString() !== "NaN" ?$('.in-header-bod span').text(sessionStorage.getItem("tex")) && $('.in-header-body-span').text(sessionStorage.getItem("tex1")) && $('.in-header-body-spa').text(sessionStorage.getItem("tex2")) && $('.in-header-bod h2 span').addClass('active') : sessionStorage.setItem("tex", tex) && sessionStorage.setItem("tex1", tex1) && sessionStorage.setItem("tex2", tex2) && $('.in-header-bod h2 span').removeClass('active');
+
+})

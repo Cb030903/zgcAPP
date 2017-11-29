@@ -9,12 +9,12 @@
         <link rel="stylesheet" type="text/css" href="../css/successsigning.css"/>
 		<script src="../js/dome.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/summer.js" ></script>
-		<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="../js/summer.js" ></script>-->
+		<!--<script src="../js/index.js" type="text/javascript" charset="utf-8"></script>-->
 	</head>
 	<body>
 		<div class="headdiv">
-			<a href="JavaScript:history.back(-1)"></a>
+			<a href="JavaScript:window.history.go(-1)"></a>
 			好享存介绍
 		</div>
 		<div class="padd3030 margtop">
@@ -42,7 +42,7 @@
 						<p>好享存有三大特点：</p>
 						<div>一、自动存入。签约后，每日系统会自动判断账户活期余额减去零钱后是否满5万，只要满5万则自动存入好享存账户；</div>
 						<div>二、当日起息。当日存入的好享存账户，当日计息，次日即可看到账户信息；</div>
-						<div>三、7日结转。账户满7日后，在第八日将该账户余额进行本息结转。</div>
+						<div>三、7日结转。账户满7日后，在第8日将该账户余额进行本息结转。</div>
 
 					</div>
 				</div>
@@ -109,4 +109,21 @@
 			</div>
 		</div>
 	</body>	
+	<script type="text/javascript">
+$(function(){
+
+
+           if(JSON.parse(sessionStorage.getItem("str"))!=null){
+			$('.hxcjsdiv1-1 span').text(JSON.parse(sessionStorage.getItem("str")).BODY.proceed_rate);
+           	
+           }
+
+
+	
+})
+
+	
+
+	</script>
 </html>
+

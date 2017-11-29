@@ -300,11 +300,12 @@
 .hxcjsdiv1-3{
 	padding: 0 0.933333rem;
 	margin-top: 0.466666rem;
+	text-align: center;
 }
 .hxcjsdiv1-3 li{
 	font-size: 0.266666rem;
 	color: #6f7b86;
-	float: left;
+  
 	display: inline-block;
 	padding:0.08rem 0.106666rem;
 	border:1px solid #6f7b86;
@@ -356,4 +357,24 @@ line-height: 0.453rem;
 }
 .nullnum p{
 	margin-top: 0.266666rem;
+}
+#bus_loaderbox {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;   
+	z-index: 999999;	
+}
+#bus_loaderbox div{
+	position: absolute;
+	top: 0;
+    bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 0.533rem;
+	height:0.533rem;
+	background: url(../img/lgf.gif) no-repeat center;
+	background-size:cover ;
 }

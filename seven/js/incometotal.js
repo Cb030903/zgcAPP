@@ -3,14 +3,14 @@ window.onload = function() {
 	summer.callService(
 					"IuapExchangeNative.gotoNative", //原生服务（类名+方法名）
 					{
-						'isShowTabbar': "NO",
+
 						'tab': 3,
 						'requestdata':{'txcode': '1900011','acc_currency':'CNY','income_type':'1','page_index':'1','page_count':'10','branch_id':'90001'},
 						"callback": incometotal,
 					}, //参数
 					false //异步（true 同步）
 				)
-	},1000)
+	},500)
 }
 
 function incometotal(data) {

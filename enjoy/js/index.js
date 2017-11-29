@@ -168,8 +168,10 @@ function swx() {
 		//		localStorage.removeItem('pagecount')
 
 	})
-	a = b.find('span').text();
+//	a = b.find('span').text();
+
 	c = localStorage.getItem('mon');
+
 	//	var re = /^[0-9]+.?[0-9]*$/;判断是否为数字
 	//如果是一个空串或是一个空格，而isNaN是做为数字0进行处理的，而parseInt与parseFloat是返回一个错误消息，这个isNaN检查不严密而导致的。
 	//parseFloat(inputData).toString() == "NaN"

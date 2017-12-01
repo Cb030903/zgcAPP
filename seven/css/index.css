@@ -538,22 +538,29 @@ background: url(../img/mm.png) no-repeat center ;
 .um-back.mine-back {
     left: 0;
 }
-.in-pro{
+/*.in-pro{
 	padding: .2rem .4rem 0;
 }
 .in-pro h3{
 	font-weight: normal;
 	margin: 0;
 	padding: 0 0 .3rem 0;
-}
+}*/
 .in-proc{
 	background: #fff;
-	margin: 0 .4rem;
+	margin: .4rem;
 	padding: .4rem;
 	border-radius: .2rem;
+	font-size: 0.373rem;
+	
 }
-.in-proc p{
+
+
+.in-proc p,.in-proc b{
+	display: block;
 	padding-bottom: .4rem;
+	color: #4B5366;
+
 }
 .in-proc p:first-child{
 	text-indent: .2rem;

@@ -8,7 +8,13 @@
 		<title>未登录</title>
 		<link rel="stylesheet" href="css/iuapmobile.um.css">
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
-
+		<script src="js/dome.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/summer.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/iuapmobile.frameworks.ui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/chi.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 
 	<body id="index">
@@ -16,14 +22,16 @@
 			<div></div>
 		</div>
 		<script type="text/javascript">
-
-
+			
 			GetMsg()
 
 			function GetMsg() {
 				var timerId = null;
-
+                  
 				var msg = document.getElementById("bus_loaderbox");
+
+				msg.style.height=window.innerHeight+'px';
+
 				if(window.document.readyState != null && window.document.readyState != 'complete') {
 					msg.style.display = "block";
 				} else {
@@ -34,15 +42,11 @@
 				}
 				timerId = window.setTimeout('GetMsg()', 1000);
 			}
-
 		</script>
 		<div class="um-page">
 			<div class="indexmi">
 
 				<div id="content" class="um-content in">
-			
-					
-				
 
 					<div class="in-header">
 						<header>
@@ -50,7 +54,7 @@
 								<p></p>
 								<a href="###">查看余额</a>
 							</div>
-                            <div class="in-header-wu in-box">
+							<div class="in-header-wu in-box">
 								<h1>好享存</h1>
 								<p>暂无余额</p>
 							</div>
@@ -111,71 +115,7 @@
 
 				</div>
 			</div>
-			<!--<div class="indexmi">
 
-				<div id="content" class="um-content in">
-					<div class="in-header">
-						<header>
-							<div class="in-header-wu">
-								<h1>好享存</h1>
-								<p>暂无余额</p>
-							</div>
-						</header>
-					</div>
-					<a href="html/askanswer.html">
-
-						<section class="in-cen">
-							<div class="in-cen-left">
-								<p></p>
-								<span>年化收益率</span>
-							</div>
-
-							<div class="in-cen-right" datt='askanswer'>
-
-								<p>会自转的存款，省心又安全</p>
-								<ul>
-									<li><span>五万起存</span></li>
-									<li><span>当日起息</span></li>
-									<li><span>七天结息</span></li>
-									<li><span>自动转存</span></li>
-								</ul>
-
-							</div>
-
-						</section>
-					</a>
-
-					<section class="in-bot row">
-						<h1>留存零钱，剩余转入好享存</h1>
-						<div class="in-bot-num">
-							<input type="number" name="" class="number"  placeholder="输入零钱金额" value="" />
-
-						</div>
-						<div class="ruler">
-							<div class="main">
-								<ul>
-								</ul>
-							</div>
-							<div class="in-bot-box"><span></span>元不参与签约</div>
-
-						</div>
-						<span class="in-bot-a">同意 <a href="html/procol.html">《好享存协议》</a></span>
-
-						<a class="in-bot-b" href="###">立即签约</a>
-						<a href="html/depos.html">
-							<div class="in-bot-c">
-								<div>
-									<p>我行已按国家规定参加存款保险</p>
-									<span>50万保额，保护您珍贵的存款</span>
-								</div>
-								<img src="img/bour.png" />
-							</div>
-						</a>
-					</section>
-
-				</div>
-
-			</div>-->
 			<div class="indexmi">
 
 				<div id="content" class="um-content in">
@@ -233,114 +173,30 @@
 						</a>
 						<h3 class="in-hb-tite"><p>零钱：2000.00元</p><span>解约</span></h3>
 						<div>
-							
 
-						<ul class="countul in-box-a">
+							<ul class="countul in-box-a">
 
-						</ul>
-						<section class="in-hb in-hb-whi in-box-a">
+							</ul>
+							<section class="in-hb in-hb-whi in-box-a">
 
-						<div class="in-hb-box">
+								<div class="in-hb-box">
 
-							<img src="img/bour1-2.png" />
-							<p>快来存钱 不做月光族</p>
-							<a class="transferbtn" href="###">立即转入</a>
+									<img src="img/bour1-2.png" />
+									<p>快来存钱 不做月光族</p>
+									<a class="transferbtn" href="###">立即转入</a>
 
+								</div>
+
+							</section>
 						</div>
 
-					</section>
-						</div>
-					
 					</section>
 
 				</div>
 			</div>
-			<!--<div class="indexmi">
-				<div id="content" class="um-content in">
-					<div class="in-header">
-						<header>
-							<div class="in-header-bod">
-								<h1>好享存</h1>
-								<h2><span  >* * * * *</span></h2>
-							</div>
-							<ul class="in-header-body">
-								<li>
-									<span class="in-header-body-span">* * *</span>
-									<p>昨日收益</p>
-								</li>
 
-								<li>
-									<a href="html/incometotal.html">
-
-										<span class="in-header-body-spa">* * *</span>
-										<p>累计收益</p>
-									</a>
-								</li>
-							</ul>
-						</header>
-					</div>
-					<a href="html/askanswer.html">
-						<section class="in-cen">
-							<div class="in-cen-left">
-								<p></p>
-								<span>年化收益率</span>
-							</div>
-
-							<div class="in-cen-right">
-
-								<p>会自转的存款，省心又安全</p>
-								<ul>
-									<li><span>五万起存</span></li>
-									<li><span>当日起息</span></li>
-									<li><span>七天结息</span></li>
-									<li><span>自动转存</span></li>
-								</ul>
-
-							</div>
-
-						</section>
-					</a>
-
-					<section>
-						<a href="html/depos.html">
-							<div class="in-bot-c in-bot-d">
-								<div>
-									<p>我行已按国家规定参加存款保险</p>
-									<span>50万保额，保护您珍贵的存款</span>
-								</div>
-								<img src="img/bour.png">
-							</div>
-						</a>
-					</section>
-					<section class="in-hb">
-
-						<h3 class="in-hb-tite"><p>零钱：2000.00元</p><span>解约</span></h3>
-					</section>
-
-					<section class="in-hb in-hb-whi in-box-a">
-
-						<div class="in-hb-box">
-
-							<img src="img/bour1-2.png" />
-							<p>快来存钱 不做月光族</p>
-							<a class="transferbtn" href="###">立即转入</a>
-
-						</div>
-
-					</section>
-
-				</div>
-			</div>-->
 		</div>
 
 	</body>
-	<script src="js/dome.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/summer.js"></script>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/main.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/Frameworks/iuapmobile.frameworks.ui.js"></script>
-	<script src="js/chi.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 
 </html>
-

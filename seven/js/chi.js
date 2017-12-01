@@ -11,14 +11,14 @@
 		}
 		$('.main').find('li').width(awin / 2)
 		var awi = awin / 2;
-		var bwin = awi * 50;               
-		var sval = sessionStorage.getItem('sval')?sessionStorage.getItem('sval'):'';
+		var bwin = awi * 50;
+		var sval = sessionStorage.getItem('sval') ? sessionStorage.getItem('sval') : '';
 		if(sval !== '') {
 			$('.in-bot-num').addClass('action')
 			$('.in-bot-b').css('background', '#4F85F3')
 			$('.in-bot-box').show().find('span').text(sval)
 			$('.number').val(sval)
-			
+
 		}
 
 		sval = sval / (c / awi) //获取平均值 得到移动值
@@ -31,7 +31,8 @@
 
 		$('.number').on('input porpertychange', function() {
 			end = $(this).val();
-			miv = $(this).val();			
+			miv = $(this).val();
+			end = end.toString().substring(0) == '.' ? '' : end;
 			end = end.replace(/[^\d.]/g, ""); //清除“数字”和“.”以外的字符  
 			end = end.replace(/\.{2,}/g, "."); //只保留第一个. 清除多余的  
 			end = end.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
@@ -44,13 +45,9 @@
 			miv = miv > maxl ? maxl : miv;
 			end = end > maxl ? maxl : end;
 			$('.number').val(end)
-                sessionStorage.setItem('sval',end)
-						
-			end===''?$('.in-bot-num').removeClass('action') && $('.in-bot-box').hide() && $('.in-bot-b').css('background', ' #c7d6f6'):$('.in-bot-num').addClass('action') && $('.in-bot-box').show().find('span').text(miv) && $('.in-bot-b').css('background', '#4F85F3');
+			sessionStorage.setItem('sval', end)
 
-			
-
-			 
+			end === '' ? $('.in-bot-num').removeClass('action') && $('.in-bot-box').hide() && $('.in-bot-b').css('background', ' #c7d6f6') : $('.in-bot-num').addClass('action') && $('.in-bot-box').show().find('span').text(miv) && $('.in-bot-b').css('background', '#4F85F3');
 
 			end = end / (c / awi) //获取平均值 得到移动值
 
@@ -89,7 +86,7 @@
 			val = Math.abs(X - awin) * (c / awi);
 
 			$('.number').val(Math.round(val / 100) * 100);
-			
+
 			$('.in-bot-box').show().find('span').text(Math.round(val / 100) * 100)
 			e.preventDefault();
 		});
@@ -121,7 +118,7 @@
 
 			} else {
 				var vale = $(this).closest(".row").find('.number').val();
-
+				sessionStorage.setItem('sval', vale)
 				vale = vale / (c / awi) //获取平均值 得到移动值
 				setTimeout(function() {
 
